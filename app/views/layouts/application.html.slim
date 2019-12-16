@@ -6,15 +6,19 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    / = javascript_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     nav.navbar.navbar-dark.bg-dark.flex-md-nowrap.p-0.shadow
       a.navbar-brand.col-sm-3.col-md-2.mr-0[href="#"]
         | IMDB Clone
-      input.form-control.form-control-dark.w-100[type="text" placeholder="Search" aria-label="Search"]
-      ul.navbar-nav.px-3
-        li.nav-item.text-nowrap
-          a.nav-link[href="#"]
-            | Sign out
+      span.navbar-text
+        - if current_user
+          => current_user.email
+          = link_to icon_tag('fas fa-sign-out-alt'), destroy_user_session_path, class: 'mx-2', method: :delete
+        - else
+          => link_to t('devise.sessions.new'), new_user_session_path
+          | or
+          =< link_to t('devise.registrations.new'), new_user_registration_path, class: 'mr-2'
+
   .container-fluid.mt-3
     = yield

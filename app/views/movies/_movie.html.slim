@@ -2,10 +2,15 @@
   = image_tag 'movie-dog.jpeg', class: 'card-img-top'
   .card-body
     h5.card-title
-      = movie.title
+      => movie.title
+      i.fas.fa-star
+      =< movie.average_rating
+      | /
+      small 10
     h6.card-subtitle.mb-2.text-muted
       = movie.categories_list
     p.card-text
       = movie.description
-    a.btn.btn-primary[href="#"]
-      | RATING
+    - if current_user
+      a.btn.btn-primary[href="#"]
+        | RATING

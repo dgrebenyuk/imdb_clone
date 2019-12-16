@@ -7,6 +7,8 @@ gem 'administrate'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap'
 gem 'devise'
+gem 'font-awesome-sass', '~> 5.12.0'
+gem 'jquery-rails'
 gem 'pg'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.2'
