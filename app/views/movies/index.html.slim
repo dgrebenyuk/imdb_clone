@@ -1,19 +1,5 @@
-h1 Listing movies
-
-table
-  thead
-    tr
-      th
-      th
-      th
-
-  tbody
-    - @movies.each do |movie|
-      tr
-        td = link_to 'Show', movie
-        td = link_to 'Edit', edit_movie_path(movie)
-        td = link_to 'Destroy', movie, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Movie', new_movie_path
+h1 Movies
+.row
+  - @movies.each do |movie|
+    .col-12.col-md-3
+      = render 'movie', movie: movie

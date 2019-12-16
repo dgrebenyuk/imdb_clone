@@ -1,0 +1,11 @@
+.card
+  = image_tag 'movie-dog.jpeg', class: 'card-img-top'
+  .card-body
+    h5.card-title
+      = movie.title
+    h6.card-subtitle.mb-2.text-muted
+      = movie.categories_list
+    p.card-text
+      = movie.description
+    a.btn.btn-primary[href="#"]
+      | RATING
