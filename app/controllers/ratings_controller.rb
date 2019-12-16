@@ -53,6 +53,6 @@ class RatingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def rating_params
-      params.fetch(:rating, {})
+      params.reuire(:rating).permit(:movie_id, :value)
     end
 end

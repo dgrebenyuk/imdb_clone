@@ -1,6 +1,6 @@
 class Rating < ApplicationRecord
-  MIN_RATING = 1
-  MAX_RATING = 10
+  MIN_RATING = 1.freeze
+  MAX_RATING = 10.freeze
 
   belongs_to :user
   belongs_to :movie

@@ -7,6 +7,13 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_admin
+    USERNAME = 'admin'.freeze
+    PASSWORD = 'pass123'.freeze
+
+    http_basic_authenticate_with(
+      name: USERNAME,
+      password: PASSWORD
+    )
 
     def authenticate_admin
       # TODO Add authentication logic here.
