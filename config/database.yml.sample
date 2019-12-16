@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  port: 5432
+
+development:
+  <<: *default
+  database: imdb_clone
+
+test:
+  <<: *default
+  database: imdb_clone_test
+
+staging:
+  <<: *default
+  database: imdb_clone
+
+production:
+  <<: *default
+  database: imdb_clone
