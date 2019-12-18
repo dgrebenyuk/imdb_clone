@@ -1,0 +1,11 @@
+h1
+  => @category.name
+  | Movies
+  small.float-right
+    = link_to 'Back to all movies', root_path
+.row.mt-4
+  - @movies.each do |movie|
+    .col-12.col-md-3
+      = render('movies/movie', movie: movie)
+.row.mt-4.float-right
+  = paginate @movies, theme: 'twitter-bootstrap-4'

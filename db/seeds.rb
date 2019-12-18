@@ -1,4 +1,7 @@
-# User.create(name: email: password: password_confirmation:)
+if User.count.zero?
+  User.create(email: 'denis.g@innovationfeel.com', password: 'pass123', password_confirmation: 'pass123')
+end
+
 if Category.count.zero?
   Category.create([{name: 'Action'}, {name: 'Comedy'}, {name: 'Horror'}, {name: 'Thriller'}])
 end

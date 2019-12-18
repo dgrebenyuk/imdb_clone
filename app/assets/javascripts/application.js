@@ -4,7 +4,11 @@
 //= require bootstrap
 
 $(function () {
-  $('[data-toggle="popover"]').popover();
+  $('[data-toggle="popover"]').popover({
+    placement: 'top',
+    html: true,
+    sanitize: false
+  });
 
   $('body').on('click', '.popover-body a', function(e){
     e.preventDefault();

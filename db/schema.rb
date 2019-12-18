@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_16_112121) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categories_movies", id: false, force: :cascade do |t|
+  create_table "categories_movies", force: :cascade do |t|
     t.bigint "movie_id"
     t.bigint "category_id"
     t.index ["category_id"], name: "index_categories_movies_on_category_id"

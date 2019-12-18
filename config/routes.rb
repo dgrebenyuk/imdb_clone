@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :movies
-    resources :ratings
     resources :categories
 
     root to: 'users#index'
   end
 
-  resources :ratings
+  resources :ratings, only: :create
+  resources :categories, only: :show
   resources :movies, only: %i[index show]
 
   root 'movies#index'

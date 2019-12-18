@@ -11,6 +11,7 @@ class MovieDashboard < Administrate::BaseDashboard
     categories: Field::HasMany,
     id: Field::Number,
     title: Field::String,
+    description: Field::Text,
     average_rating: Field::Number.with_options(decimals: 2),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -45,7 +46,7 @@ class MovieDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
   categories
   title
-  average_rating
+  description
   ].freeze
 
   # COLLECTION_FILTERS

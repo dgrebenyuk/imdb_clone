@@ -1,5 +1,14 @@
-h1 Movies
-.row
+h1
+  | Movies
+  .dropdown.show.float-right
+    a#categoryFilter.btn.btn-secondary.dropdown-toggle [data-toggle="dropdown"]
+      | Filter By Category
+
+    .dropdown-menu [aria-labelledby="categoryFilter"]
+      - @categories.each do |category|
+        = link_to category.name, category_path(id: category.name.downcase), class: 'dropdown-item'
+
+.row.mt-4
   - @movies.each do |movie|
     .col-12.col-md-3
       = render('movie', movie: movie)
