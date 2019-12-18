@@ -1,4 +1,4 @@
-.card
+.card id="movie_#{movie.id}"
   = image_tag 'movie-dog.jpg', class: 'card-img-top'
   .card-body
     h5.card-title
@@ -7,10 +7,14 @@
       =< movie.average_rating
       | /
       small 10
+      - if current_user
+        - if user_rating(movie)
+          span.float-right
+            =< user_rating(movie)
+          = icon_tag 'fas fa-star float-right mr-1'
+        - else
+          = icon_tag 'far fa-star float-right', data: { toggle: :popover, placement: :top, html: true, sanitize: false, content: render('rating', movie_id: movie.id), html: true }
     h6.card-subtitle.mb-2.text-muted
       = movie.categories_list
     p.card-text
       = movie.description
-    - if current_user
-      a.btn.btn-primary[href="#"]
-        | RATING

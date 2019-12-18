@@ -1,0 +1,2 @@
+- Rating::MAX_VALUE.times do |i|
+  = link_to icon_tag('far fa-star mr-1'), ratings_path(movie_id: movie_id, value: i + 1)
