@@ -2,4 +2,6 @@ h1 Movies
 .row
   - @movies.each do |movie|
     .col-12.col-md-3
-      = render 'movie', movie: movie
+      = render('movie', movie: movie)
+.row.mt-4.float-right
+  = paginate @movies, theme: 'twitter-bootstrap-4'

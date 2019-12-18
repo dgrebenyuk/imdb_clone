@@ -6,9 +6,11 @@ ruby '2.6.2'
 gem 'administrate'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap'
+gem 'bootstrap4-kaminari-views'
 gem 'devise'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'pg'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.2'
@@ -18,6 +20,7 @@ gem 'slim-rails'
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
+  gem 'faker'
   gem 'pry-rails'
 end
 
@@ -32,7 +35,6 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webdrivers'

@@ -16,5 +16,12 @@ if Movie.count.zero?
   ])
   Movie.first.categories << Category.where('name = ? OR name = ?', 'Action', 'Comedy')
   Movie.last.categories << Category.where(name: 'Horror')
+
+  # Generate 100 fake movies for pagination
+  categories = Category.all
+  100.times do
+    movie = Movie.create(title: Faker::Superhero.name, description: Faker::Lorem.paragraph)
+    movie.categories << categories.sample(rand(1..2))
+  end
 end
 

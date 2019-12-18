@@ -1,3 +1,11 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+a.movie-link:hover {
+  text-decoration: none;
+}
+
+.card:hover {
+  border-color: darkgray;
+}

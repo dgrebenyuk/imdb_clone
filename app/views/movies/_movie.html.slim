@@ -1,20 +1,18 @@
-.card id="movie_#{movie.id}"
+.card.mb-4 id="movie_#{movie.id}"
   = image_tag 'movie-dog.jpg', class: 'card-img-top'
   .card-body
     h5.card-title
-      => movie.title
-      i.fas.fa-star
-      =< movie.average_rating
-      | /
-      small 10
-      - if current_user
-        - if user_rating(movie)
-          span.float-right
-            =< user_rating(movie)
-          = icon_tag 'fas fa-star float-right mr-1'
-        - else
-          = icon_tag 'far fa-star float-right', data: { toggle: :popover, placement: :top, html: true, sanitize: false, content: render('rating', movie_id: movie.id), html: true }
+      = link_to movie.title, movie_path(movie), class: 'movie-link'
     h6.card-subtitle.mb-2.text-muted
       = movie.categories_list
-    p.card-text
-      = movie.description
+    i.fas.fa-star
+    =< movie.average_rating
+    | /
+    small 10
+    - if current_user
+      - if user_rating(movie)
+        span.float-right
+          =< user_rating(movie)
+        = icon_tag 'fas fa-star float-right mr-1'
+      - else
+        = icon_tag 'far fa-star float-right', data: { toggle: :popover, placement: :top, html: true, sanitize: false, content: render('rating', movie_id: movie.id), html: true }
