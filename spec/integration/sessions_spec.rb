@@ -20,4 +20,23 @@ RSpec.describe "User registration and login", type: :feature do
       expect(page).to have_content 'Invalid Email or password'
     end
   end
+
+  context 'Registration' do
+    it 'should validate fields presence' do
+      visit '/users/sign_up'
+      click_button 'Sign up'
+      expect(page).to have_content 'Email can\'t be blank'
+      expect(page).to have_content 'Password can\'t be blank'
+    end
+
+    it 'should create new user and redirect to home page' do
+      visit '/users/sign_up'
+      fill_in 'Email', with: 'johndoe@test.com'
+      fill_in 'Password', with: 'pass123'
+      fill_in 'Password confirmation', with: 'pass123'
+      click_button 'Sign up'
+      expect(page).to have_content 'Movies'
+      expect(page).to have_content 'johndoe@test.com'
+    end
+  end
 end
